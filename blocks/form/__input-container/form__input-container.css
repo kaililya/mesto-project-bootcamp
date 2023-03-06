@@ -1,0 +1,11 @@
+.form__input-container {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, fill);
+    margin: 0 calc((100vw - 320px)/(1280 - 320) * (36 - 22) + 22px);
+    padding: 0;
+    border: 0;
+    gap: 24px;
+    position: relative;
+    margin-bottom: calc((100vw - 320px)/(1280 - 320) * (48 - 46) + 46px);
+    margin-top: calc((100vw - 320px)/(1280 - 320) * (42 - 67) + 67px);
+}

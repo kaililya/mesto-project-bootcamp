@@ -1,0 +1,12 @@
+.profile__unbreakable-string {
+    display: flex;
+    align-items: flex-end;
+}
+@media (max-width: 620px) {
+    .profile__unbreakable-string {
+            display: flex;
+            align-items: normal;
+            justify-content: center;
+            margin: 0 0 0 27px;
+        }
+}

@@ -1,0 +1,8 @@
+.form {
+    background-color: white;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: calc((100vw - 320px)/(1280 - 320) * (430 - 282) + 282px);
+    height: calc((100vw - 320px)/(1280 - 320) * (330 - 322) + 322px);
+    display: block;
+}
