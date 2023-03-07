@@ -14,7 +14,7 @@
     transition: all .2s ease-in-out;
 }
 .profile__buttom-change-descrition:hover {
-    background-color: rgb(25, 63, 253);
+    opacity: .6;
 }
 @media (max-width: 930px) {
     .profile__buttom-change-descrition {

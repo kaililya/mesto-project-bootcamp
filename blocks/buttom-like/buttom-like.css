@@ -4,7 +4,7 @@
     height: 19px;
     border: 0;
     padding: 0;
-    position: absolute;
-    right: 20px;
-    top: 30px;
+    align-self: center;
+    margin: 0 20px 0 0;
+
 }

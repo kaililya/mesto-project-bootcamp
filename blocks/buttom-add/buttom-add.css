@@ -13,7 +13,7 @@
     transition: all .2s ease-in-out;
 }
 .buttom-add:hover {
-    background-color: rgb(25, 63, 253);
+    opacity: .6;
 }
 @media (max-width: 930px) {
     .buttom-add {
