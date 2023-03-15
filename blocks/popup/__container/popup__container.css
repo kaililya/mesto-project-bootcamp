@@ -1,7 +1,6 @@
 .popup__container {
     width: calc((100vw - 320px)/(1280 - 320) * (510 - 282) + 282px);
-    height: calc((100vw - 320px)/(1280 - 320) * (370 - 322) + 322px);
     display: flex;
     flex-flow: column;
-    gap: calc((100vw - 320px)/(1280 - 320) * (8 - 16) + 16px);;
+    gap: calc((100vw - 320px)/(1280 - 320) * (8 - 16) + 16px);
 }

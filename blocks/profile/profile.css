@@ -1,7 +1,6 @@
 .profile {
     display: flex;
     max-width: 880px;
-    max-height: 120px;
     margin: 0 auto 51px;
 }
 @media (max-width: 930px) {
@@ -14,7 +13,6 @@
             flex-flow: column;
             align-items: center;
             max-width: 282px;
-            min-height: 286px;
             margin: 0 auto 36px;
         }
 }

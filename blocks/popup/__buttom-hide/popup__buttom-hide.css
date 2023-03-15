@@ -1,4 +1,4 @@
-.buttom-hide {
+.popup__buttom-hide {
     padding: 0;
     margin: 0;
     background-color: transparent;
@@ -9,8 +9,13 @@
     border: 0;
     cursor: pointer;
     align-self: flex-end;
-
+    background-image: url(../../../images/popup/close-Icon.svg);
+    background-size: cover;
+    -webkit-transition: opacity .25s linear;
+    -o-transition: opacity .25s linear;
+    transition: opacity .25s linear;
 }
-.buttom-hide:hover .buttom-hide__icon {
-    filter: invert(60%);
+
+.popup__buttom-hide:hover {
+    opacity: 0.5;
 }

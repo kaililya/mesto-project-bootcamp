@@ -4,9 +4,14 @@
     left: 0;
     bottom: 0;
     right: 0;
-    display: none;
+    display: flex;
+    visibility: hidden;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0,.5);
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-transition: visibility .25s linear, opacity .25s linear;
+    -o-transition: visibility .25s linear, opacity .25s linear;
+    transition: visibility .25s linear, opacity .25s linear;
+    opacity: 0;
 }
