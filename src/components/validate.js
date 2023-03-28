@@ -1,9 +1,6 @@
 import {openPopup} from './modal.js'
 import {popupAddCard, configValidation} from '../utils/constants.js'
 
-export function handleNewCardСlick() {
-    openPopup(popupAddCard);
-}
 
 export function showError(formElement, inputElement, config) {
     const spanWithError = formElement.querySelector('#error-' + inputElement.id);
@@ -17,7 +14,7 @@ export function hideError(formElement, inputElement, config) {
     inputElement.classList.remove(config.inputErrorClass); 
 }
   
-export function HideErrorBeforeOpenForm(formElement, config) {
+export function hideErrorBeforeOpenForm(formElement, config) {
     Array.from(formElement.querySelectorAll(config.inputSelector)).forEach((inputElement) => {
       hideError(formElement, inputElement, config);
     })
@@ -42,7 +39,6 @@ export function toggleButton(formElement, buttonSubmitForm) {
 export function setEventListener (formElement, config) {
     const inputList = formElement.querySelectorAll(config.inputSelector);
     const buttonSubmitForm = formElement.querySelector(config.buttonSubmitSelector);
-  
   
     toggleButton(formElement, buttonSubmitForm);
     inputList.forEach((input) => {

@@ -1,11 +1,16 @@
 import {cardTemplate, inputCardName, inputCardlink, cardContainer, popupAddCard, popupImage, popupTitle, popupOpenImage, formAddCard, configValidation} from '../utils/constants.js'
 import {closePopup,openPopup} from './modal.js'
+import {toggleButton} from '../components/validate.js'
+
+
 
 export function handleAddCard(event) {
     event.preventDefault();
     const newCard = {name: inputCardName.value, link: inputCardlink.value}; 
     addCard(cardContainer, newCard); 
     event.target.reset();
+    const buttonSubmitForm = formAddCard.querySelector(configValidation.buttonSubmitSelector);
+    toggleButton(formAddCard, buttonSubmitForm);
     closePopup(popupAddCard);
   }
   
