@@ -1,0 +1,15 @@
+.cards {
+    max-width: 880px;
+    margin: 0 auto 67px;
+}
+@media (max-width: 930px) {
+    .cards {
+            max-width: 581px;
+        }
+}
+@media (max-width: 620px) {
+    .cards {
+            max-width: 282px;
+            margin: 0 auto 48px;
+        }
+}

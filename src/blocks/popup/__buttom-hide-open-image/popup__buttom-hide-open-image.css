@@ -1,0 +1,12 @@
+.popup__buttom-hide-open-image {
+    position: absolute;
+    right: -40px;
+    top: -40px;
+}
+
+@media (max-width: 620px) {
+    .popup__buttom-hide-open-image {
+        right: 0;
+        top: -36px;
+    }
+}
