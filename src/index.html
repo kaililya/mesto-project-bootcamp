@@ -13,15 +13,16 @@
             <img class="header__logo" src="<%=require('./images/header/logo-mesto.svg')%>" alt="Логотип проекта место">
         </header>
         <main class="content">
-
+            <!-- src="<%=require('./images/profile/test-avatar.png')%>" -->
             <section class="profile">
-                <img class="profile__author-image" src="<%=require('./images/profile/test-avatar.png')%>" alt="Логотип автора">
+                <img class="profile__author-image"  alt="Логотип автора">
+                <button class="profile__buttom-chage-avatar" type="button"></button>
                 <div class="profile__description">
                     <div class="profile__unbreakable-string">
-                        <h1 class="profile__title">Жак-Ив Кусто</h1>
+                        <h1 class="profile__title"></h1>
                         <button class="profile__buttom-change-descrition" type="button"></button>
                     </div>
-                    <p class="profile__subtitle">Исследователь океана</p>
+                    <p class="profile__subtitle"></p>
                 </div>
                 <button class="profile__buttom-add" type="button"></button>
             </section>
@@ -46,7 +47,7 @@
                         <input id="profile-subtitle" class="form__input form__input-profile-subtitle" type="text" name="author_description" placeholder="Род деятельности" minlength="2" maxlength="200" required>
                         <span id="error-profile-subtitle" class="error-message"></span>  
                     </fieldset>
-                    <button class="form__button-update form__button-update----profile" type="submit">Сохранить</button>
+                    <button class="form__button-update" type="submit">Сохранить</button>
                 </form>
             </div> 
         </div>
@@ -63,7 +64,7 @@
                         <input id="card-link" class="form__input form__input-card-link" type="url"  name="card-link" placeholder="Ссылка на картинку" required>
                         <span id="error-card-link" class="error-message"></span>
                     </fieldset>
-                    <button class="form__button-update form__button-update----addcard" type="submit" >Добавить</button>
+                    <button class="form__button-update" type="submit" >Добавить</button>
                 </form>
             </div> 
         </div>
@@ -77,6 +78,20 @@
                 </figure> 
             </div>
         </div>
+
+        <div class="popup popup-change-avatar">
+            <div class="popup__container"> 
+                <button class="popup__buttom-hide popup__buttom-hide-change-avatar" type="botton"></button>            
+                <form class="form form-avatar" name="form-change-avatar" aria-hidden="true" data-backdrop="static" data-keyboard="false" novalidate>
+                    <h2 class="form__heading">Обновить аватар</h2>
+                    <fieldset class="form__input-container">
+                        <input id="profile-avatar" class="form__input form__input-change-avatar" type="url" name="author_avatar" placeholder="Ссылка на новое фото" minlength="2" maxlength="200" required> 
+                        <span id="error-profile-avatar" class="error-message"></span>
+                    </fieldset>
+                    <button class="form__button-update" type="submit">Сохранить</button>
+                </form>
+            </div> 
+        </div>
         
         <template class="card-template">
             <li class="card">
@@ -84,7 +99,10 @@
                 <img class="card__image" src="#" alt="">
                 <div class="card__description">
                     <h2 class="card__title"></h2>
-                    <button class="card__buttom-like"></button>
+                    <div class="card__like-area">
+                        <button class="card__buttom-like"></button>
+                        <p class="card__like-number"><p>
+                    </div>
                 </div>
             </li> 
         </template>

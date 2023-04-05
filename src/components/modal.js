@@ -1,5 +1,8 @@
-import {popupOpenedGlobal, inputProfileTitle, inputProfileSubtitle, profileTitle, profileSubtitle, formChangeProfile, configValidation, popupChangeProfile, popupAddCard} from '../utils/constants.js'
+import {formAddCard,popupChangeAvatar, buttomChangeAvatar, popupOpenedGlobal, inputProfileTitle, inputProfileSubtitle, profileTitle, profileSubtitle,buttonSubmitProfile, formChangeProfile, configValidation, popupChangeProfile, popupAddCard, formChangeAvatar, inputProfileAvatar} from '../utils/constants.js'
 import {hideErrorBeforeOpenForm} from '../components/validate.js'
+import {getProfileData, setProfileData, setAvatarData} from './profile.js' 
+import {api} from './api.js'
+
 
 
 export function handleNewCardСlick() {
@@ -23,10 +26,10 @@ export function closeWithEscape(event) {
     }
 }
 
-
 export function openProfile() {
-    inputProfileTitle.value = profileTitle.textContent;
-    inputProfileSubtitle.value = profileSubtitle.textContent;
+    const {name, about} = getProfileData();
+    inputProfileTitle.value = name;
+    inputProfileSubtitle.value = about;
     hideErrorBeforeOpenForm(formChangeProfile, configValidation);
     openPopup(popupChangeProfile);
 }
@@ -38,10 +41,40 @@ export function closeWithClickOnOverlay(event, currentPopup, closingElement) {
     }
 };
 
+
 export function handleProfileSubmit(event) {
     event.preventDefault();
+    updateButtonCaption(buttonSubmitProfile,"Сохранение...");
 
-    profileTitle.textContent = inputProfileTitle.value;
-    profileSubtitle.textContent = inputProfileSubtitle.value;
-    closePopup(popupChangeProfile);
+    api.patchProfile({name: inputProfileTitle.value, about:inputProfileSubtitle.value})
+    .then((user) => {
+      setProfileData(user);
+      closePopup(popupChangeProfile);
+    })
+    .finally(() => {updateButtonCaption(buttonSubmitProfile,"Сохранить")})
 }
+
+export function updateButtonCaption(button, caption) {
+    button.textContent = caption;
+}
+
+export function handleAvatarSubmit(event) {
+    event.preventDefault();
+    const buttonSubmitForm = formChangeAvatar.querySelector(configValidation.buttonSubmitSelector);
+    updateButtonCaption(buttonSubmitForm, 'Сохранение...');
+
+    
+    api.patchAvatar({avatar: inputProfileAvatar.value})
+    .then(avatar => {
+        setAvatarData(avatar);
+
+        closePopup(popupChangeAvatar);
+    })
+    .finally(() => {updateButtonCaption(buttonSubmitProfile,"Сохранить")})
+
+}
+
+export function handleNewAvatarСlick() {
+    hideErrorBeforeOpenForm(formChangeAvatar, configValidation);
+    openPopup(popupChangeAvatar);
+  }

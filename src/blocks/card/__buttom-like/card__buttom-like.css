@@ -4,12 +4,12 @@
     height: 19px;
     border: 0;
     padding: 0;
-    align-self: center;
-    margin: 0 20px 0 0;
     cursor: pointer;
     background-image: url(../../../images/cards/sign-like.svg);
     background-size: 22px 19px;
     transition: all .25s ease-in-out;
+    max-height: 19px;
+    min-height: 19px;
 }
 
 .card__buttom-like:hover {

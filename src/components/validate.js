@@ -1,7 +1,3 @@
-import {openPopup} from './modal.js'
-import {popupAddCard, configValidation} from '../utils/constants.js'
-
-
 export function showError(formElement, inputElement, config) {
     const spanWithError = formElement.querySelector('#error-' + inputElement.id);
     spanWithError.textContent = inputElement.validationMessage;
