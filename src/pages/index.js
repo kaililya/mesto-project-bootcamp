@@ -15,7 +15,7 @@ export function InitialData() {
     setProfileData(user);
     setAvatarData(avatarka);
 
-    cards.forEach((card) => {
+    cards.reverse().forEach((card) => {
 
       if (user['_id'] === card.owner['_id']) {
         addCard(cardContainer, {name: card.name, link: card.link, massiveLikes: card['likes'], cardId: card['_id'], cardOwner: card['owner'], userAuthorized: user}, 'y');

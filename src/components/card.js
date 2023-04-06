@@ -6,8 +6,7 @@ import {api} from './api.js'
 
 export function handleAddCard(event) {
     event.preventDefault();
-    const buttonSubmitForm = formAddCard.querySelector(configValidation.buttonSubmitSelector);
-    updateButtonCaption(buttonSubmitForm, 'Сохранение...');
+    updateButtonCaption(event.submitter, 'Добавление...');
 
     const newCard = {name: inputCardName.value, link: inputCardlink.value}; 
     
@@ -18,14 +17,12 @@ export function handleAddCard(event) {
       addCard(cardContainer, {name: card.name, link: card.link, massiveLikes: card['likes'], cardId: card['_id'], cardOwner: card['owner'], userAuthorized: user}, 'y');
 
       event.target.reset();
-      toggleButton(formAddCard, buttonSubmitForm);
+      toggleButton(formAddCard, event.submitter);
       closePopup(popupAddCard);
 
     })
     .catch((res) => {console.log(res)})
-    .finally(() => {
-      updateButtonCaption(buttonSubmitForm,"Сохранить")
-    })
+    .finally(() => {updateButtonCaption(event.submitter, "Добавить")})
 
   }
   
@@ -72,10 +69,10 @@ export function createCard(card, deleteable) {
 
       // если карточка моя - сохраянем фичу удаления, иначе удаляем кнопку удаления карточки
       if (deleteable === 'y') { 
-        cardButtonDelete.addEventListener('click', deleteCard);
         cardButtonDelete.addEventListener('click', (event) => {
           const idCurrentCard = event.target.closest('.card').querySelector('.card__image').id;
           api.deleteCard(idCurrentCard)
+          .then(deleteCard(event))
           .catch(console.dir)
         })
       } else {
@@ -93,20 +90,18 @@ export function createCard(card, deleteable) {
               cardElementLikeNumber.textContent = res['likes']['length'];
               const listLikes = res['likes'].map((liker) => liker['_id'])
               cardElementLikeNumber.id = listLikes;
-              // console.log('Я снял лайк')
+              likeCard(event);
             })
             .catch(console.dir)
-            .finally(() => {likeCard(event);})
           } else {
             api.putLike(idCurrentCard)
             .then((res) => {
               cardElementLikeNumber.textContent = res['likes']['length'];
               const listLikes = res['likes'].map((liker) => liker['_id'])
               cardElementLikeNumber.id = listLikes;
-              // console.log('Я поставил лайк')
+              likeCard(event);
             })
             .catch(console.dir)
-            .finally(() => {likeCard(event);})
             }
         })
       })
@@ -117,7 +112,7 @@ export function createCard(card, deleteable) {
   }
   
 export function addCard(cardsList, currentCard, deleteable) {
-      return cardsList.append(createCard(currentCard, deleteable));
+      return cardsList.prepend(createCard(currentCard, deleteable));
 }
 
 

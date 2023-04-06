@@ -31,7 +31,6 @@ export const cardContainer = document.querySelector('.cards__list');
 export const cardTemplate = document.querySelector('.card-template').content;
 
 
-export const buttonSubmitProfile = formChangeProfile.querySelector('.form__button-update');
 
 
 export const configValidation = {
@@ -41,3 +40,6 @@ export const configValidation = {
   inputErrorClass: 'form__input_error'
 };
 
+export const buttonSubmitForm = formChangeAvatar.querySelector(configValidation.buttonSubmitSelector);
+
+export const buttonSubmitProfile = formChangeProfile.querySelector('.form__button-update');
